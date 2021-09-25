@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
+import br.com.supera.game_store.model.entities.Cart;
 import br.com.supera.game_store.model.entities.Product;
+import br.com.supera.game_store.model.repositories.CartRepository;
 import br.com.supera.game_store.model.repositories.ProductRepository;
 
 @Configuration
@@ -15,6 +17,9 @@ public class H2DBLoadGames implements CommandLineRunner {
 	
 	@Autowired
 	private ProductRepository productRepository;
+	
+	@Autowired
+	private CartRepository cartRepository;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -28,6 +33,9 @@ public class H2DBLoadGames implements CommandLineRunner {
 		Product p8 = new Product (420,"FIFA 18", new BigDecimal ("195.39"), (short)325,"fifa-18.png");
 		Product p9 = new Product (501,"Horizon Zero Dawn", new BigDecimal ("115.8"),(short)290,"horizon-zero-dawn.png" );
 		productRepository.saveAll(Arrays.asList(p1,p2,p3,p4,p5,p6,p7,p8,p9));
+		
+		Cart c1 = new Cart();
+		cartRepository.saveAll(Arrays.asList(c1));
 		
 	}
 

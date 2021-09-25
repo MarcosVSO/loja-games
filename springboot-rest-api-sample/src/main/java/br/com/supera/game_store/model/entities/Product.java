@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Product {
 
 	   @Id
-	   @GeneratedValue(strategy = GenerationType.IDENTITY)
+	   //@GeneratedValue(strategy = GenerationType.IDENTITY)
 	   @Column(name = "id")
 	   private long id;
 	   
@@ -48,7 +48,11 @@ public class Product {
 		   this.score = score;
 		   this.image = image;
 	   }
-
+	   
+	   public long getId() {
+		   return this.id;
+	   }
+	   
 		public String getName() {
 			return name;
 		}

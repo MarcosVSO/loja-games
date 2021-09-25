@@ -1,6 +1,7 @@
 package br.com.supera.game_store.business;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,14 @@ public class ProductBusiness {
 	
 	public List<Product> findAll(){
 		return repository.findAll();
+	}
+	
+	public Product findById(long id) {
+		Optional<Product> product = repository.findById(id);
+		if (product.isEmpty()) {
+			System.out.println("Produto não encontrado");
+		}
+		return product.get();
 	}
 	
 }
