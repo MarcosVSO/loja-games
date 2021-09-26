@@ -1,5 +1,6 @@
 package br.com.supera.game_store.business;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,12 +19,28 @@ public class ProductBusiness {
 		return repository.findAll();
 	}
 	
+	public List<Product> findAllAlphabetic(){
+		return repository.findAllAlphabetic();
+	}
+	
+	public List<Product> findAllPriceAsc(){
+		return repository.findAllPriceAsc();
+	}
+	
+	public List<Product> findAllScoreAsc(){
+		return repository.findAllScoreAsc();
+	}
+	
 	public Product findById(long id) {
 		Optional<Product> product = repository.findById(id);
 		if (product.isEmpty()) {
 			System.out.println("Produto não encontrado");
 		}
 		return product.get();
+	}
+	
+	public List<Product> insert(Collection<Product> collection){
+		return (repository.saveAll(collection));
 	}
 	
 }

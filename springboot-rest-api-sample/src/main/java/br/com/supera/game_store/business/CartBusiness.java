@@ -1,7 +1,10 @@
 package br.com.supera.game_store.business;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +21,7 @@ public class CartBusiness {
 	private CartRepository repository;
 	
 	@Autowired
-	private ProductRepository productRepository;
+	private ProductBusiness productBusiness;
 	
 	public List<Cart> findAll(){
 		return repository.findAll();
@@ -32,9 +35,20 @@ public class CartBusiness {
 		return cart.get();
 	}
 	
-	public void addToCart(long cartId, long productId) {
-		Optional<Cart> targetCart = repository.findById(cartId);
-		Optional<Product> targetProduct = productRepository.findById(productId);
-		targetCart.get().addProduct(targetProduct.get());
+	public Cart insert(Cart cart) {
+		this.productBusiness.insert(cart.getProducts());
+		BigDecimal sum = new BigDecimal("0.00");
+		float freteTotal = 0;
+		for (Product p : cart.getProducts()) {
+			sum = sum.add(p.getPrice());
+			freteTotal += 10;
+		}
+		cart.setTotal(sum);
+		BigDecimal big250 = new BigDecimal(250);
+		if (sum.compareTo(big250) > 0) {
+			freteTotal = 0;
+		}
+		cart.setFrete(freteTotal);
+		return repository.saveAndFlush(cart);
 	}
 }

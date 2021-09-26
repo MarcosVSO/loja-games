@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,11 +43,11 @@ public class CartCrtl {
 		return new ResponseEntity<Cart>(cart,headers, status);
 	}
 	
-	@PostMapping(value = "/{id}/addToCart/{productId}")
-	public ResponseEntity<Void> addToCart(@PathVariable long id, @PathVariable long productId){
-		HttpHeaders header = new HttpHeaders();
+	@PutMapping
+	public ResponseEntity<Cart> addToCart(@RequestBody Cart cart){
+		HttpHeaders headers = new HttpHeaders();
 		HttpStatus status = HttpStatus.OK;
-		business.addToCart(id, productId);
-		return new ResponseEntity<Void>(null,header,status);
+		cart = business.insert(cart);
+		return new ResponseEntity<Cart>(cart,headers,status);
 	}
 }

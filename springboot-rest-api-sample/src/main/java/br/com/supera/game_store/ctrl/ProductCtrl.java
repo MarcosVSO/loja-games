@@ -31,6 +31,39 @@ public class ProductCtrl {
 		return new ResponseEntity<List<Product>>(list, headers, status);
 	}
 	
+	@GetMapping (value = "/alphabetic")
+	public ResponseEntity<List<Product>> findAllAlphabetic(){
+		HttpHeaders headers = new HttpHeaders();
+		HttpStatus status = HttpStatus.OK;
+		List<Product> list = business.findAllAlphabetic();
+		if (list.size() == 0) {
+			status = HttpStatus.NO_CONTENT;
+		}
+		return new ResponseEntity<List<Product>>(list,headers,status);
+	}
+	
+	@GetMapping(value = "/priceasc")
+	public ResponseEntity<List<Product>> findAllPriceAsc(){
+		HttpHeaders headers = new HttpHeaders();
+		HttpStatus status = HttpStatus.OK;
+		List<Product> list = business.findAllPriceAsc();
+		if (list.size() == 0) {
+			status = HttpStatus.NO_CONTENT;
+		}
+		return new ResponseEntity<List<Product>>(list,headers,status);
+	}
+	
+	@GetMapping(value = "/scoreasc")
+	public ResponseEntity<List<Product>> findAllScoreAsc(){
+		HttpHeaders headers = new HttpHeaders();
+		HttpStatus status = HttpStatus.OK;
+		List<Product> list = business.findAllScoreAsc();
+		if (list.size() == 0) {
+			status = HttpStatus.NO_CONTENT;
+		}
+		return new ResponseEntity<List<Product>>(list,headers,status);
+	}
+	
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Product> findById(@PathVariable long id){
 		HttpHeaders headers = new HttpHeaders();

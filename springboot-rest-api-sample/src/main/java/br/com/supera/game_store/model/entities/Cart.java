@@ -1,6 +1,7 @@
 package br.com.supera.game_store.model.entities;
 
-import java.util.List;
+import java.math.BigDecimal;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,17 +24,17 @@ public class Cart {
 	private float frete;
 	
 	@Column(name = "total")
-	private float total;
+	private BigDecimal total;
 	
 	@ManyToMany
-	private List<Product> products;
+	private Set<Product> products;
 	
 	public Cart() {
 		this.frete = 0;
-		this.total = 0;
+		this.total = new BigDecimal(0);
 	}
 	
-	public Cart(long id, float frete, float total, List<Product> products) {
+	public Cart(long id, float frete, BigDecimal total, Set<Product> products) {
 		this.id = id;
 		this.frete = frete;
 		this.total = total;
@@ -52,23 +53,19 @@ public class Cart {
 		return this.frete;
 	}
 	
-	public void setTotal(float total) {
+	public void setTotal(BigDecimal total) {
 		this.total = total;
 	}
 	
-	public float getTotal() {
+	public BigDecimal getTotal() {
 		return this.total;
 	}
 	
-	public List<Product> getProducts(){
+	public Set<Product> getProducts(){
 		return this.products;
 	}
 	
-	public void setProducts(List<Product> products) {
+	public void setProducts(Set<Product> products) {
 		this.products = products;
-	}
-	
-	public void addProduct(Product product) {
-		this.products.add(product);
 	}
 }
