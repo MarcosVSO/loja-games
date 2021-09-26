@@ -13,7 +13,7 @@ Executar: ```mvn spring-boot:run```<br/>
 **Para mostrar os produtos em ordem do preço menor para maior:** localhost:9000/products/priceasc<br/>
 **Para mostrar os produtos em ordem de score menor para maior:** localhost:9000/products/scoreasc<br/>
 
-**Para mostrar os carts:** localhost:900/carts'<br/>
+**Para mostrar os carts:** localhost:900/carts<br/>
 **Para mostrar um cart específico:** localhost:9000/carts/{id}<br/>
 
 **PUT**<br/>
