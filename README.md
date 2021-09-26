@@ -2,8 +2,8 @@
 Implementação de uma API de uma loja de games utilizando Springboot, Hibernate/JPA e Banco em memória H2
 
 ## Como Inicializar a aplicação
-Após clonar o projeto, '''cd loja-game/springboot-rest-api-sample'''<br/>
-Executar: '''mvn spring-boot:run'''
+Após clonar o projeto, ```cd loja-game/springboot-rest-api-sample```<br/>
+Executar: ```mvn spring-boot:run```<br/>
 
 ## Funcionalidades
 **GET**<br/>
