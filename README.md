@@ -16,28 +16,28 @@ Executar: mvn spring-boot:run
 **Para mostrar os carts:** localhost:900/carts<br/>
 **Para mostrar um cart específico:** localhost:9000/carts/{id}<br/>
 
-**PUT**
-Utilizando o PostMan
-localhost:9000/carts
-Body-Raw-Json
-{
-    "id": 1,
-    "frete": 0.0,
-    "total": 0.0,
-    "products": [{
-        "id": 12,
-        "name": "Mortal Kombat XL",
-        "price": 69.99,
-        "score": 150,
-        "image": "mortal-kombat-xl.png"
-    },
-    {
-        "id": 31,
-        "name": "Terra Média: Sombras de Mordor",
-        "price": 79.99,
-        "score": 50,
-        "image": "terra-media-sombras-de-mordor.png"
-    }]
-}
+**PUT**<br/>
+Utilizando o PostMan<br/>
+localhost:9000/carts<br/>
+Body-Raw-Json<br/>
+{<br/>
+    "id": 1,<br/>
+    "frete": 0.0,<br/>
+    "total": 0.0,<br/>
+    "products": [{<br/>
+        "id": 12,<br/>
+        "name": "Mortal Kombat XL",<br/>
+        "price": 69.99,<br/>
+        "score": 150,<br/>
+        "image": "mortal-kombat-xl.png"<br/>
+    },<br/>
+    {<br/>
+        "id": 31,<br/>
+        "name": "Terra Média: Sombras de Mordor",<br/>
+        "price": 79.99,<br/>
+        "score": 50,<br/>
+        "image": "terra-media-sombras-de-mordor.png"<br/>
+    }]<br/>
+}<br/>
 
 
